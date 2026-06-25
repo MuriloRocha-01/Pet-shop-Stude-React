@@ -1,28 +1,16 @@
-import { useEffect, useState } from "react";
-import { api } from "../../services/api";
+import { useContext } from "react";
+import { CarrinhoContext } from "../../context/carrinhoContext";
 
-interface ProductProps {
-  id: number;
-  title: string;
-  description: string;
-  price: number;
-  cover: string;
-}
+
 
 function Card() {
-  const [products, setProducts] = useState<ProductProps[]>([]);
-
-  useEffect(() => {
-    async function getProducts() {
-      const response = await api.get("/products");
-      setProducts(response.data);
-    }
-
-    getProducts();
-  }, []);
-  console.log(products);
+  const { items } = useContext(CarrinhoContext);
   return (
     <>
+    {items.map ((item)=>{
+      <span>{item.title}</span>
+    })
+      }
     </>
   );
 }

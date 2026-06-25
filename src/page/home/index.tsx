@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { api } from "../../services/api";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { CarrinhoContext } from "../../context/carrinhoContext";
+
 
 interface ProductProps {
   id: number;
@@ -11,11 +14,9 @@ interface ProductProps {
 }
 
 
-
 function Home() {
-  function add(){
+  const { adicionarItem } = useContext(CarrinhoContext);
 
-  }
   const [products, setProducts] = useState<ProductProps[]>([]);
 
   useEffect(() => {
@@ -26,7 +27,7 @@ function Home() {
 
     getProducts();
   }, []);
-  console.log(products);
+
   return (
     <div className="flex flex-row items-center justify-center py-[5%] px-[5%] flex-wrap gap-8">
       {products.map((product) => {
@@ -43,7 +44,7 @@ function Home() {
               ></img>
               <h2 className="text-lg font-bold text-center">{product.title}</h2>
               </Link>
-              <button className="p-3 bg-red-400 text-white" onClick={add}>Adicionar ao carrinho</button>
+              <button className="p-3 bg-red-400 text-white" onClick={()=> adicionarItem(product)}>Adicionar ao carrinho</button>
             </section>
         );
       })}

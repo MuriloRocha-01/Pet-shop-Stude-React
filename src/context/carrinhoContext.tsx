@@ -3,9 +3,12 @@ import { createContext } from 'react';
 export type CarrinhoContextData = {
   items: CarrinhoProps[];
   qtdItems:number;
+  adicionarItem: (item: ProductsProps) =>void;
 }
 
-interface CarrinhoProps{
+
+type ProductsProps = Omit<CarrinhoProps, 'amount' | 'total'>
+export interface CarrinhoProps{
   id:number;
   title:string;
   description:string;
