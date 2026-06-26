@@ -7,7 +7,7 @@ export type CarrinhoContextData = {
 }
 
 
-type ProductsProps = Omit<CarrinhoProps, 'amount' | 'total'>
+export type ProductsProps = Omit<CarrinhoProps, 'amount' | 'total'>
 export interface CarrinhoProps{
   id:number;
   title:string;

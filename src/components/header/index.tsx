@@ -18,11 +18,11 @@ function Header() {
         </Link>
         <Link to="/carrinho" className="font-bold ">
           <ShoppingCart />
-          {qtdItems > 0 && (
-            <span className="absolute top-4 right-19 px-2.5 bg-green-400 rounded-full w-6 h-6 flex items-center justify-center">
-            0
+          {qtdItems > 0 &&  (
+            <span className="absolute top-4 right-19 px-2.5 bg-green-400 rounded-full w-6 h-6 flex items-center justify-center"> 
+              {qtdItems}
             </span>
-          ) }
+          )}
         </Link>
       </section>
     </div>
