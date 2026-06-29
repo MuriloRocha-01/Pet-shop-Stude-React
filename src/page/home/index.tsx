@@ -3,6 +3,7 @@ import { api } from "../../services/api";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { CarrinhoContext } from "../../context/carrinhoContext";
+import { ShoppingCart } from "lucide-react";
 
 
 interface ProductProps {
@@ -34,7 +35,7 @@ function Home() {
         return (
             <section
               key={product.id}
-              className="w-80 shadow-xl rounded-lg overflow-hidden flex flex-col gap-3"
+              className="w-80 border-2 border-gray-200 rounded-[1rem] overflow-hidden flex flex-col gap-3"
             > 
               <Link to={`/produto/${product.id}`}>
               <img
@@ -42,9 +43,12 @@ function Home() {
                 alt={product.title}
                 className="w-80 h-80"
               ></img>
-              <h2 className="text-lg font-bold text-center">{product.title}</h2>
+              <h2 className="text-lg text-center">{product.title}</h2>
               </Link>
-              <button className="p-3 bg-red-400 text-white" onClick={()=> adicionarItem(product)}>Adicionar ao carrinho</button>
+              <div className="flex flex-row justify-between p-4">
+                <button className="rounded-lg w-10 h-10 border-2 border-gray-300 text-black text-center flex items-center justify-center" onClick={()=> adicionarItem(product)}><ShoppingCart /></button>
+                <p className="text-[1.5rem]">R$ {product.price}</p>
+              </div>
             </section>
         );
       })}
