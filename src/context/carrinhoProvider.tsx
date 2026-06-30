@@ -1,5 +1,7 @@
 import { useState, type ReactNode } from 'react';
-import { type ProductsProps, type CarrinhoProps, CarrinhoContext } from './carrinhoContext';
+import { CarrinhoContext } from './carrinhoContext';
+import type { ProductsProps } from '../types/product';
+import type { CarrinhoProps } from '../types/carrinho';
 
 interface CarrinhoProviderProps {
   children: ReactNode;
@@ -31,7 +33,6 @@ export function CarrinhoProvider({ children }: CarrinhoProviderProps) {
         })
       );
     } 
-  console.log(items)
   }
 
   return (

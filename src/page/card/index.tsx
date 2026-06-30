@@ -5,7 +5,6 @@ import { CarrinhoContext } from "../../context/carrinhoContext";
 
 function Card() {
   const { items, qtdItems } = useContext(CarrinhoContext);
-  console.log(items)
   return (
     <div className="flex items-center justify-center ">
     {qtdItems < 1 && (

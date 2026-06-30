@@ -1,4 +1,6 @@
 import { createContext } from 'react';
+import {type CarrinhoProps } from '../types/carrinho'
+import {type ProductsProps} from '../types/product'
 
 export type CarrinhoContextData = {
   items: CarrinhoProps[];
@@ -7,15 +9,5 @@ export type CarrinhoContextData = {
 }
 
 
-export type ProductsProps = Omit<CarrinhoProps, 'amount' | 'total'>
-export interface CarrinhoProps{
-  id:number;
-  title:string;
-  description:string;
-  price:number;
-  cover:string;
-  amount:number;
-  total:number;
-}
 
 export const CarrinhoContext = createContext({} as CarrinhoContextData );
