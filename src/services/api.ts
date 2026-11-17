@@ -1,9 +1,12 @@
+import { products } from "../data/products";
+import type { ProductsProps } from "../types/product";
 
-import axios from 'axios';
+// Antes: axios apontando para o json-server em localhost:3000.
+// Agora os dados são locais, o que permite publicar o site só como front-end (ex.: Vercel).
+export async function getProducts(): Promise<ProductsProps[]> {
+  return products;
+}
 
-//json-server --watch db.json
-
-export const api = axios.create({
-    baseURL: 'http://localhost:3000'
-    
-})
+export async function getProduct(id: string | number | undefined): Promise<ProductsProps | undefined> {
+  return products.find((p) => String(p.id) === String(id));
+}
